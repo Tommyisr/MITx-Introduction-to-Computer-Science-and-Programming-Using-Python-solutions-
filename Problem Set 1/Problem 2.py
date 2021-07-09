@@ -9,14 +9,20 @@ substring = 'bob'
 string = input("Please, enter a string: ")
 index = 0
 count = 0
-for i in range(0,len(string)):
-    if string[i] == substring[index]: # string letter matches to substring letter
-        if index == len(substring)-1: # all the letters from the substring were matched to the letters from the original string
-            count+=1
-            index=1
-        else:
-            index+=1 # case for 'bobob'
-    else:
-        index=0
+it = 0
+i = 0
+match = 0
+for it in range(len(string)):
+    for i in range(len(substring)):
+        if it+i < len(string) and string[it+i] == substring[index]:
+            match += 1
+        index += 1
+
+    if match == len(substring):
+        count +=1
+    it += 1
+    match = 0
+    index = 0
+
 
 print("Number of times bob occurs is: ", count)

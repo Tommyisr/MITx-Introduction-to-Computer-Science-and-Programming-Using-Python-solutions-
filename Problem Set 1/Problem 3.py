@@ -15,8 +15,8 @@ max_length = 0
 length = 1
 
 string = input("Please, enter a string: ")
-for i in range(1,len(string)):
-    if string[i] >= string[i-1]:
+for i in range(0,len(string)):
+    if i>0 and string[i] >= string[i-1]:
         length+=1
 
     else:
